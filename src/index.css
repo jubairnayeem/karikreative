@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  body {
+    background-color: #0D0D0D;
+    color: #F7F5F0;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-kari text-white font-display font-semibold px-6 py-3 rounded-xl
+           hover:bg-kari-light active:scale-95 transition-all duration-150
+           disabled:opacity-40 disabled:cursor-not-allowed disabled:active:scale-100;
+  }
+  .btn-ghost {
+    @apply border border-white/20 text-chalk font-display font-medium px-5 py-2.5 rounded-xl
+           hover:bg-white/5 active:scale-95 transition-all duration-150;
+  }
+  .input-field {
+    @apply w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3
+           text-chalk placeholder-slate font-body text-sm
+           focus:outline-none focus:border-kari/60
+           transition-colors duration-150;
+  }
+  .card {
+    @apply bg-white/[0.03] border border-white/10 rounded-2xl p-6;
+  }
+  .step-badge {
+    @apply w-7 h-7 rounded-full bg-kari/15 text-kari text-xs font-display font-semibold
+           flex items-center justify-center flex-shrink-0;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #3a3a3a; border-radius: 4px; }
+
+/* Bengali font class */
+.font-bengali { font-family: 'Noto Sans Bengali', sans-serif; }
+
+/* Progress shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Rotating ring */
+@keyframes rotate-ring {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.rotate-ring { animation: rotate-ring 3s linear infinite; }
